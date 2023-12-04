@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/static/inicio.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Listado de carnes</h1>
+    <div>
+        <a href="{{url_for('appcarne.agregar')}}">Agregar carne</a>
+    </div>
+    <div>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Descripcion</th>
+                    <th>Precio</th>
+                    <th>Peso</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for carne in carnes%}
+                <tr>
+                    <td>{{carne.id}}</td>
+                    <td>{{carne.nombre}}</td>
+                    <td>{{carne.descripcion}}</td>
+                    <td>{{carne.precio}}</td>
+                    <td>{{carne.peso}}</td>
+                    <td><a href="detalleCarne.html">Detalle</a></td>
+                    <td><a href="editarCarne.html">Editar</a></td>
+                    <td><a href="eliminarCarne/{{carne.id}}">Eliminar</a></td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
